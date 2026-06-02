@@ -3,8 +3,8 @@ import Layout from "./components/layout";
 import { ToastProvider } from "./context/toastcontext";
 import Customers from "./pages/Customers";
 import Dashboard from "./pages/dashboard";
-import Orders from "./pages/Orders";
-import Products from "./pages/Products";
+import Orders from "./pages/orders";
+import Products from "./pages/products";
 
 export default function App() {
   return (
