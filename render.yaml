@@ -1,0 +1,32 @@
+services:
+  - type: web
+    name: inventory-backend
+    env: python
+    plan: starter
+
+    # Python version
+    pythonVersion: 3.12
+
+    # Build command
+    buildCommand: "pip install -r requirements.txt"
+
+    # Start command
+    startCommand: "uvicorn app.main:app --host 0.0.0.0 --port $PORT"
+
+    # Environment variables
+    envVars:
+      - key: DATABASE_URL
+        scope: runtime
+        value: ""  # Set via dashboard
+
+    # Health check
+    healthCheckPath: /docs
+    healthCheckInterval: 300
+
+databases:
+  - name: inventory-db
+    engine: postgres
+    version: "16"
+    plan: starter
+    ipAllowList: []  # Allow all IPs
+
